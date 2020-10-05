@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from flask import Flask, redirect, request
 from pythainlp import word_tokenize # ทำการเรียกตัวตัดคำ
-from pythainlp.word_vector import * # ทำการเรียก thai2vec
+#from pythainlp.word_vector import * # ทำการเรียก thai2vec
 from gensim.models import KeyedVectors
 from gensim.models.keyedvectors import Word2VecKeyedVectors
 from sklearn.metrics.pairwise import cosine_similarity  # ใช้หาค่าความคล้ายคลึง
