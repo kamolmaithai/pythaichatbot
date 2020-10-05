@@ -65,7 +65,7 @@ def sentence_vectorizer(ss,dim=300,use_mean=True): # ประกาศฟัง
 def sentence_similarity(s1,s2):
     return cosine_similarity(sentence_vectorizer(str(s1)),sentence_vectorizer(str(s2)))
 #model=get_model() # ดึง model ของ thai2vec มาเก็บไว้ในตัวแปร model
-model=KeyedVectors.load_word2vec_format('./pythainlp-data/thai2vec.bin', binary=True)
+model=KeyedVectors.load_word2vec_format('thai2vec.bin', binary=True)
 phrase_arr, pitoid = phrases_from_json()
 response_arr, ritoid = responses_from_json()
 @app.route("/")
