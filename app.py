@@ -28,7 +28,7 @@ def add_header(r):
 def phrases_from_json(jsonurl='export.json'):
     # load from local
     if jsonurl == 'export.json' :
-        intents = json.load(open(jsonurl, encoding='utf-8'))['intents']
+        intents = json.load(open(jsonurl, 'r').read().decode("utf-8", errors='ignore'))['intents']
     else :
          intents = json.loads(requests.get(jsonurl).text)['intents']
     itoid = []
@@ -42,7 +42,7 @@ def phrases_from_json(jsonurl='export.json'):
 def responses_from_json(jsonurl='export.json'):
     # load from local
     if jsonurl == 'export.json' :
-        intents = json.load(open(jsonurl, encoding='utf-8'))['intents']
+        intents = json.load(open(jsonurl, 'r').read().decode("utf-8", errors='ignore'))['intents']
     else :
         intents = json.loads(requests.get(jsonurl).text)['intents']
     itoid = []
