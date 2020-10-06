@@ -28,9 +28,9 @@ def add_header(r):
 def phrases_from_json(jsonurl='export.json'):
     # load from local
     if jsonurl == 'export.json' :
-        intents = json.load(open(jsonurl,'r').decode("utf-8","ignore"))['intents']
+        intents = json.load(open(jsonurl, encoding='utf-8'))['intents']
     else :
-         intents = json.loads(requests.get(jsonurl).text.decode("utf-8","ignore"))['intents']
+         intents = json.loads(requests.get(jsonurl).text)['intents']
     itoid = []
     phrase_arr = []
     for intent in intents:
@@ -42,9 +42,9 @@ def phrases_from_json(jsonurl='export.json'):
 def responses_from_json(jsonurl='export.json'):
     # load from local
     if jsonurl == 'export.json' :
-        intents = json.load(open(jsonurl,'r').decode("utf-8","ignore"))['intents']
+        intents = json.load(open(jsonurl, encoding='utf-8'))['intents']
     else :
-        intents = json.loads(requests.get(jsonurl).text.decode("utf-8","ignore"))['intents']
+        intents = json.loads(requests.get(jsonurl).text)['intents']
     itoid = []
     response_arr = []
     for intent in intents:
