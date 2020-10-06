@@ -6,7 +6,7 @@ from gensim.models import KeyedVectors
 from gensim.models.keyedvectors import Word2VecKeyedVectors
 from sklearn.metrics.pairwise import cosine_similarity  # ใช้หาค่าความคล้ายคลึง
 import numpy as np
-import requests, json
+import requests, json, os
 
 app = Flask(__name__,
             static_url_path='', 
@@ -64,6 +64,9 @@ def sentence_vectorizer(ss,dim=300,use_mean=True): # ประกาศฟัง
     return vec
 def sentence_similarity(s1,s2):
     return cosine_similarity(sentence_vectorizer(str(s1)),sentence_vectorizer(str(s2)))
+#prepare thai2vec.bin
+os.system('cat ./pythainlp-data/thai2vec.tar* > ./pythainlp-data/thai2vec.tar')
+os.system('tar -xf ./pythainlp-data/thai2vec.tar -C ./pythainlp-data')
 #model=get_model() # ดึง model ของ thai2vec มาเก็บไว้ในตัวแปร model
 model=KeyedVectors.load_word2vec_format('thai2vec.bin', binary=True)
 phrase_arr, pitoid = phrases_from_json()
